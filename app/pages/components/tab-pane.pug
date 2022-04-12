@@ -1,0 +1,3 @@
+mixin tabPane(isActive, id, labelledby)
+  .tab-pane.fade.h-100.pt-5.px-4.hide-scrollbar(class=`${isActive ? 'show active' : ''}` id=`${id}` role='tabpanel' aria-labelledby=`${labelledby}`)
+    block

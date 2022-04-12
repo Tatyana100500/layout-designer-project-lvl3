@@ -1,0 +1,9 @@
+mixin contact(avatarSrc, name, desc, time=null, href='#')
+  a.contact.mb-3(href=`${href}`)
+    img.avatar(src=`${avatarSrc}` alt='Аватар пользователя')
+    .contact-body
+      .contact-title
+        span.contact-name= name
+        if time
+          span.contact-time= time
+      span.contact-desc= desc

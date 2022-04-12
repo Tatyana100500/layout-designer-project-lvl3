@@ -1,0 +1,42 @@
+-
+  const contacts = {
+    'A': [{
+      name: 'Алексей Примадонин',
+      status: 'Онлайн',
+      avatar: '/images/avatar_3.jpg'
+    }],
+    'В': [{
+      name: 'Вениамин Редакторович',
+      status: 'Онлайн',
+      avatar: '/images/avatar_4.jpg'
+    }],
+    'Д': [{
+      name: 'Джедай Падаванов',
+      status: 'Был онлайн вчера',
+      avatar: '/images/avatar_2.jpg'
+    }],
+    'К': [{
+      name: 'Кодовёнок Хекслетович',
+      status: 'Был онлайн 3 часа назад',
+      avatar: '/images/avatar_1.jpg'
+    },
+    {
+      name: 'Королева Верстальщина',
+      status: 'Была онлайн вчера',
+      avatar: '/images/avatar_5.jpg'
+    }],
+    'П': [{
+      name: 'Питонист Джангович',
+      status: 'Был онлайн вчера',
+      avatar: '/images/avatar_6.jpg'
+    }],
+  };
+include ../components/contact.pug
+block contacts-tab-content
+  h1.h2.font-weight-bold.mb-4 Контакты
+  input(type='text' placeholder='Поиск по контактам').form-control.border-0.border-bottom.p-4.shadow-none.text-truncate
+  each contactsByLetter, letter in contacts
+    p.text-muted.mt-5= letter
+    each contact in contactsByLetter
+      - const { name, status, avatar } = contact;
+      +contact(avatar, name, status)

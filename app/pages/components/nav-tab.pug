@@ -1,0 +1,7 @@
+mixin navTab(id, tabName, iconSrc, isActive, name=null)
+  li.d-flex.nav-item(role='presentation')
+    a.d-flex.align-items-center.text-white.border-0.nav-link(id=`${id}` class=`${isActive ? 'active' : ''}` href=`#${tabName}` role='tab' data-toggle='tab' aria-controls=`${tabName}` aria-selected=`${selected}`)
+      svg.mr-2.h-25px.w-25px(fill='currentColor')
+        use(xlink:href=`${iconSrc}`)
+      if name
+        span.small.navbar-text.d-none.d-md-inline= name

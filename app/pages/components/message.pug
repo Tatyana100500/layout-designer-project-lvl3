@@ -1,0 +1,21 @@
+mixin messageBase(side, text, variant, avatarSrc=null, name=null)
+  div(class=`message message-${side}`)
+    if avatarSrc
+      img.d-none.d-md-block.avatar.mr-3(src=`${avatarSrc}` alt='Аватар пользователя')
+    div(class=`message-body message-body-${variant}`)
+      if name
+        .message-name= name
+      .message-text= text
+      if block
+        .message-info
+          block
+    
+mixin leftMessage(text, variant, avatarSrc=null, name=null)
+  +messageBase('left', text, variant, avatarSrc, name)
+    if block
+      block
+
+mixin rightMessage(text, variant, avatarSrc=null, name=null)
+  +messageBase('right', text, variant, avatarSrc, name)
+    if block
+        block
